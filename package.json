@@ -1,0 +1,20 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "defining rules for playing tic tac toe",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npx babel-node src/main.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@babel/node": "^7.12.6"
+  }
+}
