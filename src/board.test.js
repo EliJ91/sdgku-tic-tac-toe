@@ -10,19 +10,38 @@ describe("Board", () => {
       expect(board.at(1)).toBe("X")
     })
 
-    test.skip("passing non X or Y throws an invalid character error", ()=>{
+    test("passing non X or Y throws an invalid character error when setting", ()=>{
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+      const board = new Board()
+      expect(()=> board.put("Z", 1)).toThrowError()
     })
 
-    test.skip("passing position below 1 or above 9 results in out of range error", ()=>{
+    test("passing position below 1 or above 9 to put results in out of range error", ()=>{
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+      const board = new Board()
+      expect(()=> board.put("Y", 10)).toThrowError()
+    })
+
+    test("passing position below 1 or above 9 to at results in out of range error", ()=>{
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+      const board = new Board()
+      expect(()=> board.at(10)).toThrowError()
     })
   })
 
   describe("Board.rows", ()=>{
-    test.skip("returns the rows of the board", ()=>{})
-    test.skip("rows has length of 3", ()=>{})
-    test.skip("each row has length of 3", ()=>{})
+    test("returns the rows of the board", ()=>{
+      const board = new Board()
+      const rows = board.rows()
+      expect(rows).not.toBe(null)
+    })
+    test("board updates are in correct squares", ()=>{
+      const board = new Board()
+      board.put("X", 1)
+      board.put("Y", 5)
+      const rows = board.rows()
+      expect(rows).toEqual([["X", 2, 3], [4, "Y", 6], [7, 8, 9]])
+    })
   })
 
   describe("Board.columns", ()=>{
